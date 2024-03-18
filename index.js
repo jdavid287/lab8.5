@@ -5,13 +5,13 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const supabase = createClient(supabaseUrl, supabaseKey)
 
 async function getBooks() {
-  let { data: Books, error } = await supabase
-  .from('Books')
-  .select('*')
+  let { data: boks, error } = await supabase
+    .from('Books')
+    .select('*')
 
-for (let book of books) {
-  let bookList = document.getElementById('books');
-  bookList.innerHTML += `<li>${book.title} - ${book.author}</li>`;
+  for (let book of Books) {
+    let bookList = document.getElementById('books');
+    bookList.innerHTML += `<tr><td>${book.title}</td><td>${book.author}</td></tr>`;
   }
 }
 
